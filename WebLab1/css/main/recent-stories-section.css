@@ -1,0 +1,39 @@
+.recent-stories-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4rem; /* Расстояние между картинкой и текстом */
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.recent-stories-section__header {
+  flex: 100%;
+  text-align: center;
+}
+
+.recent-stories-section__left {
+  flex: 1 1 0; /* равномерно делят доступное пространство и могут уменьшаться */
+}
+
+.recent-stories-section__right {
+  flex: 1 1 0; /* равномерно делят доступное пространство и могут уменьшаться */
+}
+
+.recent-stories-section__content-right {
+  display: flex;
+  align-items: flex-end;     /* выравнивание по вертикали */
+  gap: 2rem;               /* расстояние между картинкой и текстом */
+  padding: 2rem 0;
+}
+.recent-stories-section__content-text {
+  flex: 1;
+}
+
+.recent-stories-section__left img {
+  width: 100%;
+}
+
+.recent-stories-section__right img {
+  width: 40%;
+}

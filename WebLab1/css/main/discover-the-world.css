@@ -1,0 +1,59 @@
+/* discover-the-world */
+.discover-the-world {
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.discover-the-world__header {
+  margin-bottom: 5rem;
+}
+.discover-the-world__eyebrow {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+.discover-the-world__title {
+  /*?*/
+}
+.discover-the-world__grid {
+  display: grid;
+  /* Создаем 4 колонки одинаковой ширины (1fr) */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem; /* Расстояние между карточками */
+}
+.destination-card {
+  text-decoration: none;
+  color: inherit;
+
+  border-radius: var(--border-radius);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.destination-card:hover {
+  transform: translateY(-8px); /* Приподнимаем карточку при наведении */
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15); /* Увеличиваем тень */
+}
+.destination-card figure {
+  margin: 0;
+  padding: 0;
+}
+.destination-card img {
+  width: 100%;
+  height: 280px; /* Фиксированная высота для всех изображений */
+  object-fit: cover; /* Масштабирует изображение, чтобы оно заполнило блок, обрезая лишнее */
+  display: block;
+  border-radius: var(--border-radius);
+}
+.destination-card figcaption {
+  padding: 1rem;
+}
+.destination-card__title {
+  display: block;
+  font-size: 1.5rem; /* 24px */
+  margin-bottom: 0.25rem;
+}
+
+.destination-card__discover {
+  display: block;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+}

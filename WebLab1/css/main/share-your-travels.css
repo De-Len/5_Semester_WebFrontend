@@ -1,0 +1,60 @@
+.share-your-travels-section {
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-image: url("../../img/share-your-travels-section-background-image.png");
+  background-size:cover;
+  background-position: center;
+}
+
+.share-your-travels-section__header {
+  margin-bottom: 5rem;
+}
+
+.share-your-travels-form {
+  text-align: left;
+  max-width:var(--max-w);
+  padding: 2rem;
+  margin: 5rem 22rem 5rem 22rem;
+  background-color:#fff;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.05); /* Увеличиваем тень */
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.share-your-travels-form input,
+.share-your-travels-form select,
+.share-your-travels-form textarea {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.share-your-travels-form select {
+  appearance: none;          /* убираем стандартную стрелку */
+  padding-right: 2rem;       /* место под свою стрелку */
+  background: url("../../img/vector-array.svg") no-repeat right 0.75rem center;
+  background-size: 1rem;
+}
+
+.placeholder {
+  color: gray;
+}
+
+.share-your-travels-form input:focus,
+.share-your-travels-form select:focus,
+.share-your-travels-form textarea:focus {
+  border-color: var(--accent);
+}
+
+.share-your-travels-form textarea {
+  min-height: 100px;
+  margin-bottom: 1rem;
+  font: inherit;
+  resize: none;
+}

@@ -1,0 +1,11 @@
+/* hero */
+.hero{position:relative;min-height:52vh;display:flex;align-items: center;
+  background-image: url("../../img/hero-background-image.svg");
+  background-size:cover;background-position:center;padding:4rem 0;border-radius:0 0 var(--radius) var(--radius)}
+.hero-overlay{position:absolute;inset:0}
+.hero-content{width: 100%; padding-right: 30%}
+.hero h1{font-size:clamp(2rem,4.2vw,3.2rem);font-family: "Changa One";margin:0 0 .5rem;line-height:1.02}
+.hero h1 span{font-weight:900}
+.hero .hero-content h1 span.text-accent {
+  color: var(--accent);
+}
