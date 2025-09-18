@@ -5,6 +5,9 @@
   background-image: url("../../img/share-your-travels-section-background-image.png");
   background-size:cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .share-your-travels-section__header {
@@ -21,6 +24,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  justify-content: center;
 }
 
 .share-your-travels-form input,
