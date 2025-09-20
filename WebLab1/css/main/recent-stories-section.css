@@ -1,15 +1,15 @@
 .recent-stories-section {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;     /* обе колонки начинаются сверху */
-  gap: 4rem;                   /* расстояние между колонками */
+  align-items: flex-start; /* обе колонки начинаются сверху */
+  gap: 4rem;
   padding: 5rem 0;
 }
 
 .recent-stories-section__header {
   flex: 100%;
   text-align: center;
-  margin-bottom: 3rem;         /* отступ между заголовком и колонками */
+  margin-bottom: 3rem; /* отступ между заголовком и колонками */
 }
 
 .recent-stories-section__left {
@@ -28,20 +28,38 @@
   padding: 1rem 0 0 1rem;
 }
 
-.recent-stories-section__content-left .play-icon {  flex-shrink: 0;width: 40px; height: 40px; border-radius: 50%; background-color: var(--accent); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;}
+.recent-stories-section__content-left .play-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
 
-.recent-stories-section__content-left .play-icon::after {content: '';width: 0;height: 0;border-top: 7px solid transparent;border-bottom: 7px solid transparent;border-left: 12px solid white;margin-left: 4px; /* Чтобы треугольник был по центру */}
+.recent-stories-section__content-left .play-icon::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 12px solid white;
+  margin-left: 4px; /* Чтобы треугольник был по центру */
+}
 
 .recent-stories-section__right {
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
-  gap: 2rem;                   /* отступ между карточками */
+  gap: 2rem;
 }
 
 .recent-stories-section__content-right {
   display: flex;
-  align-items: flex-start;      /* картинка и текст по верхнему краю */
+  /*align-items: flex-start;      !* картинка и текст по верхнему краю *!*/
   background-color: #F9F9F9;
   border-radius: 8px;
   padding: 1rem;
