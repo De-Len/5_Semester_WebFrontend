@@ -50,6 +50,10 @@ h2 {
   margin: 0 0 1rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* responsive tweaks */
 @media (min-width: 1200px) {
   .hero {
