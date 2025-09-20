@@ -1,12 +1,11 @@
 /* discover-the-world */
 .discover-the-world {
   text-align: center;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-bottom: var(--padding-section);
 }
 
 .discover-the-world__header {
-  margin-bottom: 5rem;
+  margin-bottom: 64px;
 }
 
 .discover-the-world__eyebrow {
@@ -15,15 +14,11 @@
   font-size: 0.875rem;
 }
 
-.discover-the-world__title {
-  /*?*/
-}
-
 .discover-the-world__grid {
   display: grid;
   /* Создаем 4 колонки одинаковой ширины (1fr) */
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem; /* Расстояние между карточками */
+  gap: 1.5rem;
 }
 
 .destination-card {
@@ -53,19 +48,19 @@
 }
 
 .destination-card figcaption {
-  padding: 1rem;
+  padding: 16px;
 }
 
 .destination-card__title {
   display: block;
-  font-size: 1.5rem; /* 24px */
-  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
   font-family: var(--font-family-heading);
 }
 
 .destination-card__discover {
   display: block;
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--accent);
 }

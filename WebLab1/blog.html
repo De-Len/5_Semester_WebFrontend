@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/index-main/discover-the-world.css">
+  <link rel="stylesheet" href="css/index-main/featured-destination.css">
+  <link rel="stylesheet" href="css/index-main/hero_section.css">
+  <link rel="stylesheet" href="css/index-main/share-your-travels.css">
+  <link rel="stylesheet" href="css/index-main/recent-stories-section.css">
+  <link rel="stylesheet" href="css/blog-main/blog-section.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo">
+      <img class="logo-talking" src="img/index/vector-logo-talking.svg" alt="Travel Logo">
+      <img class="logo-travel" src="img/index/vector-logo-travel.svg" alt="Travel Logo">
+    </div>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Story</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
+      <a href="#"><img src="img/index/header-search-icon.svg" alt="Search"></a>
+      <a href="#"><img src="img/index/header-profile.svg" alt="Profile"></a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="blog-section">
+    <header class="blog__header">
+      <div class="blog__header-left">
+        <p class="eyebrow">popular destinations</p>
+        <h1 class="blog__header-left__title">Hello Switzerland!</h1>
+      </div>
+      <div class="blog__header-right">
+        <img src="img/blog/avatar.jpg" alt="Avatar">
+        <div class="blog__header-right__text">
+          <p>Darrell Steward</p>
+          <p class="author">Author / Photographer</p>
+        </div>
+      </div>
+    </header>
+    <video controls poster="img/blog/article-hero-image.png">
+      <source src="#" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+    <div class="blog__content-1">
+      <h2 class="blog__content-1__title">Our Swiss adventure story</h2>
+      <p>Location location location! Zermatt Switzerland offers majestic landscapes that cannot be seen elsewhere.
+        The Matterhorn for example. This peak is a sight to behold and seeing it upclose is more magical that we’ve ever imagined.
+        ‘Want to enjoy a nice and cozy swiss breakfast! Well, Zermatt will never fail you.</p>
+    </div>
+    <div class="blog__content-callout">
+      <div class="blog__content-callout-left">
+        <div class="left">
+          <img src="img/blog/callout-swiss-winter-image.jpg" alt="">
+        </div>
+        <div class="right-top">
+          <img src="img/blog/callout-switzerland-mountains.jpg" alt="">
+        </div>
+        <div class="right-bottom">
+          <img src="img/blog/callout-switzerland-sunset-image.jpg" alt="">
+        </div>
+      </div>
+      <div class="blog__content-callout-right"></div>
+        <p>asd</p>
+    </div>
+    <div class="blog__content-2">
+
+    </div>
+  </section>
+
+  <section class="share-your-travels-section ">
+    <header class="share-your-travels-section__header">
+      <p class="eyebrow">Let’s build a community</p>
+      <h2>Join our next destination</h2>
+    </header>
+    <form class="share-your-travels-form container" action="#">
+      <h3>Share your travels</h3>
+      <p>Suggest a new travel destination that you want to see and we will feature it in our blog.</p>
+      <label for="destination-name"></label>
+      <input type="text" id="destination-name" name="destination-name" placeholder="Destination name" required >
+      <label for="destination-country"></label>
+      <select id="destination-country" name="destination-country" required>
+        <option value="" disabled selected>Country of Destination</option>
+        <option value="italy">Iceland</option>
+        <option value="france">Italy</option>
+        <option value="japan">Dubai</option>
+        <option value="usa">Patagonia</option>
+      </select>
+      <label for="your-name"></label>
+      <input type="text" id="your-name" name="your-name" placeholder="Your name" required >
+      <label for="shooting-category"></label>
+      <select id="shooting-category" name="shooting-category" required>
+        <option value="" disabled selected class="placeholder">Shooting category</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <label for="description"></label>
+      <textarea id="description" name="description" placeholder="Describe what kind of photos you want to focus on"></textarea>
+      <a class="btn primary" href="#">Submit</a>
+    </form>
+  </section>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="left-text">© 2022, Talking Travel. All Rights Reserved.</div>
+    <nav class="footer-nav">
+      <a href="#">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact us</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

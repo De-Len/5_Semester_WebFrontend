@@ -3,8 +3,8 @@
   display: flex;
   align-items: center;
   gap: 4rem; /* Расстояние между картинкой и текстом */
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: var(--padding-section);
+  padding-bottom: var(--padding-section);
 }
 .featured-destination__image-wrapper {
   flex: 50%;

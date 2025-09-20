@@ -1,28 +1,23 @@
 .share-your-travels-section {
+  display: flex;
   text-align: center;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-image: url("../../img/share-your-travels-section-background-image.png");
+  padding-top: var(--padding-section);
+  padding-bottom: var(--padding-section);
+  background-image: url("../../img/index/share-your-travels-section-background-image.png");
   background-size:cover;
   background-position: center;
-  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.share-your-travels-section__header {
-  margin-bottom: 5rem;
-}
-
 .share-your-travels-form {
-  text-align: left;
-  max-width:var(--max-w);
-  padding: 2rem;
-  margin: 5rem 22rem 5rem 22rem;
-  background-color:#fff;
-  box-shadow: 0 12px 20px rgba(0,0,0,0.05); /* Увеличиваем тень */
   display: flex;
   flex-direction: column;
+  text-align: left;
+  max-width:var(--max-w);
+  padding: 32px;
+  background-color:white;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.05); /* Увеличиваем тень */
   gap: 0.3rem;
   justify-content: center;
 }
@@ -31,7 +26,7 @@
 .share-your-travels-form select,
 .share-your-travels-form textarea {
   width: 100%;
-  padding: 1rem;
+  padding: 16px;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -41,8 +36,8 @@
 
 .share-your-travels-form select {
   appearance: none;          /* убираем стандартную стрелку */
-  padding-right: 2rem;       /* место под свою стрелку */
-  background: url("../../img/vector-array.svg") no-repeat right 0.75rem center;
+  padding-right: 16px;
+  background: url("../../img/index/vector-array.svg") no-repeat right 0.75rem center;
   background-size: 1rem;
 }
 
@@ -58,7 +53,7 @@
 
 .share-your-travels-form textarea {
   min-height: 100px;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
   font: inherit;
   resize: none;
 }

@@ -1,13 +1,13 @@
 /* hero */
 .hero {
+  display: flex;
   position: relative;
   min-height: 52vh;
-  display: flex;
   align-items: center;
-  background-image: url("../../img/hero-background-image.svg");
+  background-image: url("../../img/index/hero-background-image.svg");
   background-size: cover;
   background-position: center;
-  padding: 32px 0;
+  padding: 150px 0;
   border-radius: 0 0 var(--radius) var(--radius)
 }
 
