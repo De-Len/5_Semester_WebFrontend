@@ -12,6 +12,13 @@
   gap: 40px;
 }
 
+h1 {
+  font-size: clamp(2rem, 3rem, 4rem);
+  font-family: "Changa One";
+  margin: 0 0 .5rem;
+  font-weight: 300
+}
+
 .blog-section video {
   width: 100%;
 }
@@ -46,9 +53,10 @@
   line-height: 0.5;
 }
 
-.author {
+.small-italic-text {
   font-style: italic;
   color: gray;
+  font-size: .8rem;
 }
 
 .blog__content-callout {
@@ -59,7 +67,8 @@
   flex: 50%;
   display: grid;
   grid-template-columns: 2fr 3fr; /* левая колонка шире? Меняем при желании */
-  grid-template-rows: 1fr 1fr;    /* две строки для правой части */
+  grid-template-rows: 2fr 1fr;    /* две строки для правой части */
+  max-height: 500px;
   gap: 10px;
 }
 
@@ -85,5 +94,61 @@
 }
 
 .blog__content-callout-right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   flex: 50%;
+  padding: 32px;
+  gap: 24px;
+}
+
+.quote {
+  display: flex;
+}
+
+.quote img {
+  flex: 1%;
+  max-width: 7%;
+}
+
+.quote p {
+  font-size: clamp(2rem, 3rem, 4rem);
+  font-family: "Changa One";
+  margin: 0 0 .5rem;
+  line-height: 1;
+  font-style: italic;
+}
+
+.conclusion-text {
+  padding: 32px 0;
+}
+
+.highlights-section-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+
+
+.highlights-section-card {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+
+}
+
+.highlights-section-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.highlights-section-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.disclaimer-section {
+  padding: 16px;
+  background: #FAFAFA;
 }

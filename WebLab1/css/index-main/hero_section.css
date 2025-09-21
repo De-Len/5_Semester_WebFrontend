@@ -25,7 +25,7 @@
   font-size: clamp(3rem, 4rem, 5rem);
   font-family: "Changa One";
   margin: 0 0 .5rem;
-  line-height: 1.02
+  line-height: 1
 }
 
 .hero h1 span {
