@@ -1,0 +1,60 @@
+/* buttons */
+.btn {
+  display: inline-block;
+  padding: 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all .18s
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 8px 24px rgba(138, 92, 255, 0.16);
+  max-width: 160px;
+  text-align: center
+}
+
+.btn.primary:hover {
+  transform: translateY(-3px)
+}
+
+
+.btn.watch {
+  color: var(--gray);
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease
+}
+
+.btn.watch:hover {
+  color: var(--accent)
+}
+
+.btn.watch .play-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.btn.watch:hover .play-icon {
+  transform: scale(1.1)
+}
+
+/* Треугольник внутри иконки */
+.btn.watch .play-icon::before {
+  content: '';
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 12px solid white;
+  margin-left: 4px; /* Чтобы треугольник был по центру */
+}

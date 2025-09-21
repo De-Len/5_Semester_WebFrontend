@@ -1,0 +1,154 @@
+.blog-section {
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*gap: 4rem; !* Расстояние между картинкой и текстом *!*/
+  /*padding-top: var(--padding-section);*/
+  /*padding-bottom: var(--padding-section);*/
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--padding-section) 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+h1 {
+  font-size: clamp(2rem, 3rem, 4rem);
+  font-family: "Changa One";
+  margin: 0 0 .5rem;
+  font-weight: 300
+}
+
+.blog-section video {
+  width: 100%;
+}
+
+.blog__header {
+  display: flex;
+}
+
+.blog__header-left {
+}
+
+.blog__header-right {
+  display: flex;
+  /*flex: 50%;*/
+  /*text-align: right;*/
+  margin-left: auto;
+}
+
+.blog__header-right img {
+  flex: 50%;
+  max-width: 50px;
+  max-height: 50px;
+  height: auto;
+  object-fit: cover; /* чтобы не растягивалась */
+  border-radius: 50%;
+  margin: 8px;
+}
+
+.blog__header-right__text {
+  flex: 50%;
+  max-width: 200px;
+  line-height: 0.5;
+}
+
+.small-italic-text {
+  font-style: italic;
+  color: gray;
+  font-size: .8rem;
+}
+
+.blog__content-callout {
+  display: flex;
+}
+
+.blog__content-callout-left {
+  flex: 50%;
+  display: grid;
+  grid-template-columns: 2fr 3fr; /* левая колонка шире? Меняем при желании */
+  grid-template-rows: 2fr 1fr;    /* две строки для правой части */
+  max-height: 500px;
+  gap: 10px;
+}
+
+.blog__content-callout-left .left {
+  grid-row: 1 / 3;  /* занимает две строки */
+  background: lightblue;
+}
+
+/* Правая верхняя */
+.blog__content-callout-left .right-top {
+  background: lightcoral;
+}
+
+/* Правая нижняя */
+.blog__content-callout-left .right-bottom {
+  background: lightgreen;
+}
+
+.blog__content-callout img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog__content-callout-right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 50%;
+  padding: 32px;
+  gap: 24px;
+}
+
+.quote {
+  display: flex;
+}
+
+.quote img {
+  flex: 1%;
+  max-width: 7%;
+}
+
+.quote p {
+  font-size: clamp(2rem, 3rem, 4rem);
+  font-family: "Changa One";
+  margin: 0 0 .5rem;
+  line-height: 1;
+  font-style: italic;
+}
+
+.conclusion-text {
+  padding: 32px 0;
+}
+
+.highlights-section-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+
+
+.highlights-section-card {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+
+}
+
+.highlights-section-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.highlights-section-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.disclaimer-section {
+  padding: 16px;
+  background: #FAFAFA;
+}
