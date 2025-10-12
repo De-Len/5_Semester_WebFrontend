@@ -1,4 +1,5 @@
 :root {
+    --max-w: 1100px;
     --main-background-color: #1B1A17;
     --light-background-color: #1F1E1B;
     --mark-color: #FF8303;
@@ -9,6 +10,20 @@ body {
     color: white;
 
     background: var(--main-background-color);
+}
+
+.container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.upper {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
 }
 
 textarea {
@@ -22,4 +37,40 @@ textarea {
     background-color: var(--light-background-color);
     font-size: 16px;
     resize: none;
+}
+
+.upper-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 100px;
+    flex: 1; /* позволяет блоку занять оставшееся место */
+}
+
+.upper-right {
+    display: flex;
+    gap: 8px;
+    align-items: stretch; /* растягивает кнопку по высоте родителя */
+}
+
+.btn {
+    border: 2px solid var(--mark-color); /* цвет границы */
+    color: var(--mark-color);            /* цвет иконки */
+    background: transparent;   /* убираем фон */
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    flex: 1; /* заставляет кнопку занять всю высоту родителя */
+    aspect-ratio: 1 / 1;    /* высота = ширина, делаем квадрат */
+}
+
+.btn img {
+    width: 40px; /* Исходный размер */
+    height: 40px;
+    transition: transform 0.2s ease;}
+
+/* при наведении — сделать эффект */
+.btn:hover {
+    background: var(--mark-color);
+    color: white; /* иконка станет белой */
 }
