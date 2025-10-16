@@ -1,0 +1,58 @@
+/* ====== Оверлей и нижняя панель ====== */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.bottom-sheet {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: #1F1E1B;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+    transition: bottom 0.4s ease;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.bottom-sheet.active {
+    bottom: 0;
+}
+
+.bottom-sheet input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #2A2925;
+    color: white;
+}
+
+.bottom-sheet button {
+    width: 100%;
+    background: #FF8303;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+.bottom-sheet button:hover {
+    background: #FF9A36;
+}

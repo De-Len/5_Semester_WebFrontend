@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/buttom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -14,13 +15,24 @@
                 <textarea>asd</textarea>
             </div>
             <div class="upper-right">
-                <button class="btn">
+                <button class="btn" id="openSheet">
                    <img src="img/union.svg" alt="plus"/>
                 </button>
             </div>
         </div>
         <a>no Tasks</a>
+        <!-- затемнение -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- всплывающая панель -->
+        <div class="bottom-sheet" id="bottomSheet">
+            <input type="text" placeholder="Введите пункт 1">
+            <input type="text" placeholder="Введите пункт 2">
+            <button id="saveBtn">Сохранить</button>
+        </div>
 
     </section>
+    <script src="js/main.js"></script>
+
 </body>
 </html>
