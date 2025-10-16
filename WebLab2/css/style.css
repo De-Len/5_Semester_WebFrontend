@@ -23,10 +23,11 @@ body {
     align-items: center;
 }
 
-.container a {
+a {
     border-top: 2px solid var(--mark-color);
     border-bottom: 2px solid var(--mark-color);
     padding: 8px 0;
+    font-size: 2rem;
 
 }
 
@@ -48,7 +49,7 @@ textarea {
     border: 1px solid var(--mark-color);
     border-radius: 4px;
     background-color: var(--light-background-color);
-    font-size: 16px;
+    font-size: 1rem;
     resize: none;
 }
 
@@ -92,3 +93,4 @@ textarea::placeholder {
     opacity: 0.5;
     text-align: start;
 }
+
