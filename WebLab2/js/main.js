@@ -5,27 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelBtn = document.getElementById('cancelBtn');
     const saveBtn = document.getElementById('saveBtn');
 
-    // Для вставки карточек
     const container = document.querySelector('.container');
 
-    // Открыть модальное окно
     openBtn.addEventListener('click', () => {
         overlay.classList.add('active');
         editWindow.classList.add('active');
     });
 
-    // Закрыть окно
     function closeWindow() {
         overlay.classList.remove('active');
         editWindow.classList.remove('active');
-        // Очистка полей
         editWindow.querySelectorAll('textarea').forEach(t => t.value = '');
     }
 
     overlay.addEventListener('click', closeWindow);
     cancelBtn.addEventListener('click', closeWindow);
 
-    // Сохранить и добавить карточку
     saveBtn.addEventListener('click', () => {
         const inputs = editWindow.querySelectorAll('textarea');
         const miniText = inputs[0].value.trim();
@@ -49,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   `;
 
-        // Добавляем удаление
         card.querySelector('.delete-btn').addEventListener('click', () => {
             card.remove();
         });

@@ -1,10 +1,11 @@
 .task-card {
-    background: #2A2925;
+    background: var(--light-background-color);
+    border: 1px solid var(--mark-color);
     padding: 15px;
     border-radius: 12px;
     margin-top: 10px;
-    color: white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    color: var(--main-text-color);
+    width: 100%;
 }
 
 .task-card .card-content {
@@ -27,7 +28,7 @@
 .task-card .delete-btn {
     background: transparent;
     border: none;
-    color: #FF8303;
+    color: var(--mark-color);
     font-size: 20px;
     cursor: pointer;
     padding: 0;
