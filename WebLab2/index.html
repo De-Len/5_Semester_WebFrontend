@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/buttom.css">
+    <link rel="stylesheet" href="css/edit-window.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,8 +11,8 @@
     <section class="container">
         <div class="upper">
             <div class="upper-left">
-                <textarea>asd</textarea>
-                <textarea>asd</textarea>
+                <textarea placeholder="Title..."></textarea>
+                <textarea placeholder="About..."></textarea>
             </div>
             <div class="upper-right">
                 <button class="btn" id="openSheet">
@@ -25,10 +25,13 @@
         <div class="overlay" id="overlay"></div>
 
         <!-- всплывающая панель -->
-        <div class="bottom-sheet" id="bottomSheet">
-            <input type="text" placeholder="Введите пункт 1">
-            <input type="text" placeholder="Введите пункт 2">
-            <button id="saveBtn">Сохранить</button>
+        <div class="edit-window" id="editWindow">
+            <textarea class="mini-input" type="text" placeholder="Mini Input..."></textarea>
+            <textarea type="text" placeholder="Max Input.."></textarea>
+            <div class="buttons">
+                <button id="cancelBtn">Cancel</button>
+                <button id="saveBtn">Save</button>
+            </div>
         </div>
 
     </section>

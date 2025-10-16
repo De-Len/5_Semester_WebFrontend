@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const openBtn = document.getElementById('openSheet');
     const overlay = document.getElementById('overlay');
-    const bottomSheet = document.getElementById('bottomSheet');
+    const bottomSheet = document.getElementById('editWindow');
     const saveBtn = document.getElementById('saveBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+
+
+    overlay.classList.add('active');
+    bottomSheet.classList.add('active');
 
     openBtn.addEventListener('click', () => {
         overlay.classList.add('active');
@@ -12,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.addEventListener('click', closeSheet);
     saveBtn.addEventListener('click', () => {
         alert('Сохранено!');
+        closeSheet();
+    });
+
+    cancelBtn.addEventListener('click', () => {
         closeSheet();
     });
 

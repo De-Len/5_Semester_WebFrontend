@@ -3,6 +3,7 @@
     --main-background-color: #1B1A17;
     --light-background-color: #1F1E1B;
     --mark-color: #FF8303;
+    --main-text-color: #F0E3CA;
 }
 
 body {
@@ -19,13 +20,13 @@ body {
     padding: 0 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center; /* центр по горизонтали */
+    align-items: center;
 }
 
 .container a {
     border-top: 2px solid var(--mark-color);
     border-bottom: 2px solid var(--mark-color);
-    padding: 8px 0; /* расстояние между текстом и линиями */
+    padding: 8px 0;
 
 }
 
@@ -56,24 +57,24 @@ textarea {
     flex-direction: column;
     gap: 8px;
     max-height: 100px;
-    flex: 1; /* позволяет блоку занять оставшееся место */
+    flex: 1;
 }
 
 .upper-right {
     display: flex;
     gap: 8px;
-    align-items: stretch; /* растягивает кнопку по высоте родителя */
+    align-items: stretch;
 }
 
 .btn {
-    border: 2px solid var(--mark-color); /* цвет границы */
-    color: var(--mark-color);            /* цвет иконки */
-    background: transparent;   /* убираем фон */
+    border: 2px solid var(--mark-color);
+    color: var(--mark-color);
+    background: transparent;
     padding: 8px 12px;
     border-radius: 8px;
     cursor: pointer;
-    flex: 1; /* заставляет кнопку занять всю высоту родителя */
-    aspect-ratio: 1 / 1;    /* высота = ширина, делаем квадрат */
+    flex: 1;
+    aspect-ratio: 1 / 1;
 }
 
 .btn img {
@@ -81,9 +82,13 @@ textarea {
     height: 40px;
     transition: transform 0.2s ease;}
 
-/* при наведении — сделать эффект */
 .btn:hover {
     background: var(--mark-color);
     color: white; /* иконка станет белой */
 }
 
+textarea::placeholder {
+    color: var(--main-text-color);
+    opacity: 0.5;
+    text-align: start;
+}

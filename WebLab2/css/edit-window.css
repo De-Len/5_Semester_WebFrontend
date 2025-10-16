@@ -13,7 +13,7 @@
     pointer-events: auto;
 }
 
-.bottom-sheet {
+.edit-window {
     position: fixed;
     bottom: -100%;
     left: 0;
@@ -27,13 +27,13 @@
     margin: 0 auto;
 }
 
-.bottom-sheet.active {
+.edit-window.active {
     bottom: 0;
 }
 
-.bottom-sheet input {
+.edit-window input {
     width: 100%;
-    padding: 10px;
+    padding: 10px 0 10px 10px;
     margin-bottom: 10px;
     border-radius: 8px;
     border: none;
@@ -41,18 +41,29 @@
     color: white;
 }
 
-.bottom-sheet button {
-    width: 100%;
-    background: #FF8303;
-    border: none;
+.mini-input {
+    height: 46px;
+}
+
+
+
+.edit-window .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+.edit-window button {
+    width: calc(100% - 500px);
+    background: var(--light-background-color);
+    border: 1px solid var(--mark-color);
     border-radius: 8px;
     padding: 10px;
     cursor: pointer;
     color: white;
-    font-weight: bold;
     transition: background 0.2s ease;
 }
 
-.bottom-sheet button:hover {
+.edit-window button:hover {
     background: #FF9A36;
 }
+
