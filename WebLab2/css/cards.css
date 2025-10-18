@@ -1,28 +1,25 @@
 .task-card {
-    background: var(--light-background-color);
-    border: 1px solid var(--mark-color);
-    padding: 15px;
-    border-radius: 12px;
+    width: 100%;
     margin-top: 10px;
     color: var(--main-text-color);
-    width: 100%;
+    transition: all 0.2s ease;
+    overflow: hidden; /* важно — чтобы красиво раскрывалось */
 }
 
 .task-card .card-content {
+    border: 1px solid var(--mark-color);
+    border-radius: 12px;
+    background: var(--light-background-color);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px 20px;
 }
 
-.task-card h3 {
-    margin: 0 0 5px 0;
-    font-size: 16px;
-}
-
-.task-card p {
-    margin: 0;
-    font-size: 14px;
-    opacity: 0.8;
+.task-card .card-content:hover {
+    background: var(--mark-color);
+    color: white;
 }
 
 .task-card .delete-btn {
@@ -38,4 +35,42 @@
 
 .task-card .delete-btn:hover {
     color: #FF3B3B;
+}
+
+/* --- контейнер для выезжающих кнопок (теперь — внутри потока) --- */
+.card-under {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    padding: 0 20px;
+}
+
+/* при активации */
+.task-card.show-actions .card-under {
+    max-height: 60px; /* высота кнопок + отступы */
+    opacity: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* --- кнопки --- */
+.card-under button {
+    border: 1px solid var(--mark-color);
+    background: var(--light-background-color);
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 42px;
+    height: 42px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.card-under button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
 }

@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- элементы интерфейса ---
     const cardTitle = document.getElementById('cardTitle');
+    const cardAbout = document.getElementById('cardAbout');
 
-    const openBtn = document.getElementById('openSheet');
+    const saveCardBtn = document.getElementById('saveCard');
     const overlay = document.getElementById('overlay');
     const editWindow = document.getElementById('editWindow');
     const cancelBtn = document.getElementById('cancelBtn');
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- обработчики ---
-    openBtn.addEventListener('click', openEditWindow);
+    // openBtn.addEventListener('click', openEditWindow);
     overlay.addEventListener('click', closeEditWindow);
     cancelBtn.addEventListener('click', closeEditWindow);
 
@@ -55,10 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
     confirmOverlay.addEventListener('click', closeConfirm);
 
     // --- создание карточки ---
-    saveBtn.addEventListener('click', () => {
-        noTaskArticle.classList.add('deactive');
+    saveCardBtn.addEventListener('click', () => {
 
-        const inputs = editWindow.querySelectorAll('textarea');
+        const inputs = container.querySelectorAll('textarea');
         const miniText = inputs[0].value.trim();
         const maxText = inputs[1].value.trim();
 
@@ -66,6 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Введите текст!');
             return;
         }
+
+        noTaskArticle.classList.add('deactive');
 
         const card = document.createElement('div');
         card.className = 'task-card';
@@ -77,11 +79,50 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <button class="delete-btn">&times;</button>
           </div>
+          <div class="card-under">
+            <button class="share-btn">
+             <img src="img/Share.svg" alt="Share"/>
+            </button>
+            <button class="info-btn">
+             <img src="img/Info.svg" alt="Info"/>
+            </button>
+            <button class="edit-btn">
+             <img src="img/Edit.svg" alt="Edit"/>
+            </button>
+          </div>
         `;
+
+        const editBtn = card.querySelector('.edit-btn');
+        editBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // чтобы не срабатывал toggle show-actions
+            openEditWindow();
+
+            const titleEl = card.querySelector('h3').textContent;
+            const aboutEl = card.querySelector('p').textContent;
+            cardTitle.value = titleEl;
+            cardAbout.value = aboutEl;
+
+            const saveHandler = () => {
+                card.querySelector('h3').textContent = cardTitle.value;
+                card.querySelector('p').textContent = cardAbout.value;
+                closeEditWindow();
+                saveBtn.removeEventListener('click', saveHandler); // чтобы не дублировалось
+            };
+
+            saveBtn.addEventListener('click', saveHandler);
+        });
+
+        card.addEventListener('click', (e) => {
+            // чтобы не срабатывало при нажатии на кнопку удаления
+            if (e.target.classList.contains('delete-btn')) return;
+            card.classList.toggle('show-actions');
+        });
 
         card.querySelector('.delete-btn').addEventListener('click', () => openConfirm(card));
 
         container.appendChild(card);
-        closeEditWindow();
+        // container.appendChild(underCard);
     });
+
+
 });
