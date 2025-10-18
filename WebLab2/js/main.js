@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveCardBtn = document.getElementById('saveCard');
     const overlay = document.getElementById('overlay');
     const editWindow = document.getElementById('editWindow');
+    const miniInput = document.getElementById('miniInput');
+    const maxInput = document.getElementById('maxInput');
     const cancelBtn = document.getElementById('cancelBtn');
     const saveBtn = document.getElementById('saveBtn');
     const noTaskArticle = document.getElementById('noTasksArticle');
@@ -59,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     saveCardBtn.addEventListener('click', () => {
 
         const inputs = container.querySelectorAll('textarea');
-        const miniText = inputs[0].value.trim();
-        const maxText = inputs[1].value.trim();
+        const miniText = cardTitle.value;
+        const maxText = cardAbout.value;
 
         if (!miniText && !maxText) {
             alert('Введите текст!');
@@ -99,12 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const titleEl = card.querySelector('h3').textContent;
             const aboutEl = card.querySelector('p').textContent;
-            cardTitle.value = titleEl;
-            cardAbout.value = aboutEl;
+
+            miniInput.value = titleEl;
+            maxInput.value = aboutEl;
 
             const saveHandler = () => {
-                card.querySelector('h3').textContent = cardTitle.value;
-                card.querySelector('p').textContent = cardAbout.value;
+                card.querySelector('h3').textContent = miniInput.value;
+                card.querySelector('p').textContent = maxInput.value;
+
+                console.log(card.querySelector('h3').textContent);
+                console.log(card.querySelector('p').textContent);
+
                 closeEditWindow();
                 saveBtn.removeEventListener('click', saveHandler); // чтобы не дублировалось
             };
