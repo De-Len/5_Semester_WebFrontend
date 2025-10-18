@@ -20,9 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmNo = document.getElementById('confirmNo');
 
     let cardToDelete = null;
+    let idToDelete = null;
+
 
     const cards = getCardsFromStorage();
-    cards.forEach(cardData => createCard(cardData.title, cardData.about));
+    cards.forEach(cardData => createCard(cardData.title, cardData.about, cardData.id));
 
     // --- функции ---
     function openEditWindow() {
@@ -46,8 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
         shareWindow.classList.remove('active');
     }
 
-    function openConfirm(card) {
+    function openConfirm(card, id) {
         cardToDelete = card;
+        idToDelete = id
         overlay.classList.add('active');
         confirmWindow.classList.add('active');
     }
@@ -66,7 +69,14 @@ document.addEventListener('DOMContentLoaded', () => {
     cancelBtn.addEventListener('click', closeEditWindow);
 
     confirmYes.addEventListener('click', () => {
-        if (cardToDelete) cardToDelete.remove();
+        if (cardToDelete) {
+
+            const cards = getCardsFromStorage();
+            const newCards = cards.filter(c => c.id !== idToDelete);
+            saveCardsToStorage(newCards);
+
+            cardToDelete.remove();
+        }
         closeConfirm();
     });
     confirmNo.addEventListener('click', closeConfirm);
@@ -82,16 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('tasks', JSON.stringify(cards));
     }
 
-    function createCard(miniText, maxText, isAlreadyCreated=false) {
-        const cardData = { title: miniText, about: maxText };
+    function createCard(miniText, maxText, id = null) {
 
-        // Сохраняем в localStorage
-        if (isAlreadyCreated) {
+        if (id == null) {
+            id = Date.now(); // уникальный id
+            const cardData = { id: id, title: miniText, about: maxText };
             const cards = getCardsFromStorage();
             cards.push(cardData);
             saveCardsToStorage(cards);
         }
-
 
         noTaskArticle.classList.add('deactive');
 
@@ -136,6 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(card.querySelector('h3').textContent);
                 console.log(card.querySelector('p').textContent);
 
+                const cards = getCardsFromStorage();
+                const updatedCards = cards.map(c =>
+                    c.id === id ? { ...c, title: miniInput.value, about: maxInput.value } : c
+                );
+                saveCardsToStorage(updatedCards);
+
                 closeEditWindow();
                 saveBtn.removeEventListener('click', saveHandler);
             };
@@ -155,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.toggle('show-actions');
         });
 
-        card.querySelector('.delete-btn').addEventListener('click', () => openConfirm(card));
+        card.querySelector('.delete-btn').addEventListener('click', () => openConfirm(card, id));
 
         container.appendChild(card);
     }
@@ -171,6 +186,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        createCard(miniText, maxText, true);
+        createCard(miniText, maxText);
     });
 });
