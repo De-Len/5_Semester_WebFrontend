@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveCardBtn = document.getElementById('saveCard');
     const overlay = document.getElementById('overlay');
     const editWindow = document.getElementById('editWindow');
+    const shareWindow = document.getElementById('shareWindow');
     const miniInput = document.getElementById('miniInput');
     const maxInput = document.getElementById('maxInput');
     const cancelBtn = document.getElementById('cancelBtn');
@@ -14,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.container');
 
     // --- элементы окна подтверждения ---
-    const confirmOverlay = document.getElementById('confirmOverlay');
     const confirmWindow = document.getElementById('confirmWindow');
     const confirmYes = document.getElementById('confirmYes');
     const confirmNo = document.getElementById('confirmNo');
@@ -33,14 +33,24 @@ document.addEventListener('DOMContentLoaded', () => {
         editWindow.querySelectorAll('textarea').forEach(t => t.value = '');
     }
 
+    function openShareWindow() {
+        overlay.classList.add('active');
+        shareWindow.classList.add('active');
+    }
+
+    function closeShareWindow() {
+        overlay.classList.remove('active');
+        shareWindow.classList.remove('active');
+    }
+
     function openConfirm(card) {
         cardToDelete = card;
-        confirmOverlay.classList.add('active');
+        overlay.classList.add('active');
         confirmWindow.classList.add('active');
     }
 
     function closeConfirm() {
-        confirmOverlay.classList.remove('active');
+        overlay.classList.remove('active');
         confirmWindow.classList.remove('active');
         cardToDelete = null;
     }
@@ -48,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- обработчики ---
     // openBtn.addEventListener('click', openEditWindow);
     overlay.addEventListener('click', closeEditWindow);
+    overlay.addEventListener('click', closeShareWindow);
+
     cancelBtn.addEventListener('click', closeEditWindow);
 
     confirmYes.addEventListener('click', () => {
@@ -55,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         closeConfirm();
     });
     confirmNo.addEventListener('click', closeConfirm);
-    confirmOverlay.addEventListener('click', closeConfirm);
+    overlay.addEventListener('click', closeConfirm);
 
     // --- создание карточки ---
     saveCardBtn.addEventListener('click', () => {
@@ -96,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const editBtn = card.querySelector('.edit-btn');
         editBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // чтобы не срабатывал toggle show-actions
+            e.stopPropagation();
             openEditWindow();
 
             const titleEl = card.querySelector('h3').textContent;
@@ -113,10 +125,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(card.querySelector('p').textContent);
 
                 closeEditWindow();
-                saveBtn.removeEventListener('click', saveHandler); // чтобы не дублировалось
+                saveBtn.removeEventListener('click', saveHandler);
             };
 
             saveBtn.addEventListener('click', saveHandler);
+        });
+
+        const shareBtn = card.querySelector('.share-btn');
+        shareBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            openShareWindow();
         });
 
         card.addEventListener('click', (e) => {

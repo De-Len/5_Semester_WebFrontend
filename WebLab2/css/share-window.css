@@ -1,0 +1,44 @@
+.share-window {
+    background: var(--main-background-color);
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: #1F1E1B;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+    transition: bottom 0.4s ease;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 45px
+}
+
+.share-window.active {
+    bottom: 0;
+}
+
+.share-window button {
+    background: var(--light-background-color);
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+    flex-shrink: 0;            /* чтобы кнопки не сжимались при маленьком экране */
+}
+
+.share-window button img {
+    width: 60%;                /* иконка под размер кнопки */
+    height: 60%;
+}
+
+.share-window button:hover {
+    background-color: #e67200;
+}

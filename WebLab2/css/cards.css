@@ -23,12 +23,12 @@
 }
 
 .task-card .delete-btn {
-    background: transparent;
-    border: none;
+    background: var(--main-background-color);
+    padding: 10px;
+    border: 1px solid var(--mark-color);
     color: var(--mark-color);
     font-size: 20px;
     cursor: pointer;
-    padding: 0;
     line-height: 1;
     transition: color 0.2s ease;
 }
