@@ -14,8 +14,8 @@
 <section class="container">
     <div class="upper">
         <div class="upper-left">
-            <textarea placeholder="Title..."></textarea>
-            <textarea placeholder="About..."></textarea>
+            <textarea id="cardTitle" placeholder="Title..."></textarea>
+            <textarea id="cardAbout" placeholder="About..."></textarea>
         </div>
         <div class="upper-right">
             <button class="btn" id="openSheet">
@@ -24,12 +24,10 @@
         </div>
     </div>
 
-    <a>no Tasks</a>
+    <a id="noTasksArticle">no Tasks</a>
 
-    <!-- затемнение -->
     <div class="overlay" id="overlay"></div>
 
-    <!-- всплывающая панель -->
     <div class="edit-window" id="editWindow">
         <textarea class="mini-input" placeholder="Mini Input..."></textarea>
         <textarea placeholder="Max Input..."></textarea>
@@ -39,17 +37,17 @@
         </div>
     </div>
 
-    <!-- окно подтверждения удаления -->
     <div class="overlay" id="confirmOverlay"></div>
     <div class="confirm-window" id="confirmWindow">
-        <p>Удалить задачу?</p>
+        <p>Delete this task?</p>
         <div class="confirm-buttons">
-            <button id="confirmYes">Да</button>
-            <button id="confirmNo">Нет</button>
+            <button id="confirmYes">Yes</button>
+            <button id="confirmNo">No</button>
         </div>
     </div>
 </section>
 
 <script src="js/main.js"></script>
+
 </body>
 </html>

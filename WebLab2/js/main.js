@@ -1,10 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- элементы интерфейса ---
+    const cardTitle = document.getElementById('cardTitle');
+
     const openBtn = document.getElementById('openSheet');
     const overlay = document.getElementById('overlay');
     const editWindow = document.getElementById('editWindow');
     const cancelBtn = document.getElementById('cancelBtn');
     const saveBtn = document.getElementById('saveBtn');
+    const noTaskArticle = document.getElementById('noTasksArticle');
     const container = document.querySelector('.container');
 
     // --- элементы окна подтверждения ---
@@ -53,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- создание карточки ---
     saveBtn.addEventListener('click', () => {
+        noTaskArticle.classList.add('deactive');
+
         const inputs = editWindow.querySelectorAll('textarea');
         const miniText = inputs[0].value.trim();
         const maxText = inputs[1].value.trim();
@@ -65,14 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.className = 'task-card';
         card.innerHTML = `
-      <div class="card-content">
-        <div>
-          <h3>${miniText}</h3>
-          <p>${maxText}</p>
-        </div>
-        <button class="delete-btn">&times;</button>
-      </div>
-    `;
+          <div class="card-content">
+            <div>
+              <h3>${miniText}</h3>
+              <p>${maxText}</p>
+            </div>
+            <button class="delete-btn">&times;</button>
+          </div>
+        `;
 
         card.querySelector('.delete-btn').addEventListener('click', () => openConfirm(card));
 

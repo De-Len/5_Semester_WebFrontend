@@ -23,14 +23,19 @@ body {
     align-items: center;
 }
 
-a {
+#noTasksArticle {
     border-top: 2px solid var(--mark-color);
     border-bottom: 2px solid var(--mark-color);
     padding: 8px 0;
     font-size: 2rem;
-
+    opacity: 1;
+    inset: 0;
+    transition: opacity 0.3s ease;
 }
 
+#noTasksArticle.deactive {
+    opacity: 0;
+}
 .upper {
     display: flex;
     justify-content: center;
