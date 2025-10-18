@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let cardToDelete = null;
 
+    const cards = getCardsFromStorage();
+    cards.forEach(cardData => createCard(cardData.title, cardData.about));
+
     // --- функции ---
     function openEditWindow() {
         overlay.classList.add('active');
@@ -69,17 +72,26 @@ document.addEventListener('DOMContentLoaded', () => {
     confirmNo.addEventListener('click', closeConfirm);
     overlay.addEventListener('click', closeConfirm);
 
-    // --- создание карточки ---
-    saveCardBtn.addEventListener('click', () => {
+    function getCardsFromStorage() {
+        const cards = localStorage.getItem('tasks');
+        console.log(cards);
+        return cards ? JSON.parse(cards) : [];
+    }
 
-        const inputs = container.querySelectorAll('textarea');
-        const miniText = cardTitle.value;
-        const maxText = cardAbout.value;
+    function saveCardsToStorage(cards) {
+        localStorage.setItem('tasks', JSON.stringify(cards));
+    }
 
-        if (!miniText && !maxText) {
-            alert('Введите текст!');
-            return;
+    function createCard(miniText, maxText, isAlreadyCreated=false) {
+        const cardData = { title: miniText, about: maxText };
+
+        // Сохраняем в localStorage
+        if (isAlreadyCreated) {
+            const cards = getCardsFromStorage();
+            cards.push(cardData);
+            saveCardsToStorage(cards);
         }
+
 
         noTaskArticle.classList.add('deactive');
 
@@ -139,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         card.addEventListener('click', (e) => {
-            // чтобы не срабатывало при нажатии на кнопку удаления
             if (e.target.classList.contains('delete-btn')) return;
             card.classList.toggle('show-actions');
         });
@@ -147,8 +158,19 @@ document.addEventListener('DOMContentLoaded', () => {
         card.querySelector('.delete-btn').addEventListener('click', () => openConfirm(card));
 
         container.appendChild(card);
-        // container.appendChild(underCard);
+    }
+
+    // --- создание карточки ---
+    saveCardBtn.addEventListener('click', () => {
+
+        const miniText = cardTitle.value;
+        const maxText = cardAbout.value;
+
+        if (!miniText && !maxText) {
+            alert('Введите текст!');
+            return;
+        }
+
+        createCard(miniText, maxText, true);
     });
-
-
 });

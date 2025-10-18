@@ -23,6 +23,8 @@
 }
 
 .task-card .delete-btn {
+    width: 40px;
+    height: 40px;
     background: var(--main-background-color);
     padding: 10px;
     border: 1px solid var(--mark-color);
