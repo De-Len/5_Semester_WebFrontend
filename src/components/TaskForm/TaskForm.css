@@ -1,0 +1,67 @@
+.upper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    padding-bottom: 16px;
+}
+
+.upper textarea {
+    color: inherit;
+    width: 100%;
+    height: 150px;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid var(--mark-color);
+    border-radius: 4px;
+    background-color: var(--light-background-color);
+    font-size: 1rem;
+    resize: none;
+}
+
+.upper textarea::placeholder {
+    color: var(--main-text-color);
+    opacity: 0.5;
+    text-align: start;
+}
+
+.upper-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 100px;
+    flex: 1;
+}
+
+.upper-right {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+}
+
+.btn {
+    border: 2px solid var(--mark-color);
+    color: var(--mark-color);
+    background: transparent;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    flex: 1;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: var(--mark-color);
+    color: white;
+}
+
+.btn svg {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s ease;
+}
