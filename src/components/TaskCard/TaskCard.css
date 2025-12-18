@@ -1,0 +1,118 @@
+.task-card {
+    width: 100%;
+    margin-top: 10px;
+    color: var(--main-text-color);
+    transition: all 0.2s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.task-card.pinned {
+    border-left: 4px solid var(--mark-color);
+}
+
+.task-card .card-content {
+    border: 1px solid var(--mark-color);
+    border-radius: 12px;
+    background: var(--light-background-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 20px;
+    transition: background 0.2s ease;
+}
+
+.task-card .card-content:hover {
+    background: rgba(255, 131, 3, 0.1);
+}
+
+.task-card h3 {
+    margin: 0 0 8px 0;
+    color: var(--mark-color);
+}
+
+.task-card p {
+    margin: 0;
+    color: var(--main-text-color);
+    opacity: 0.9;
+}
+
+.task-card .extra-inputs {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 131, 3, 0.3);
+}
+
+.task-card .extra-inputs small {
+    display: block;
+    color: var(--main-text-color);
+    opacity: 0.7;
+    font-size: 0.9em;
+    margin-bottom: 4px;
+}
+
+.task-card .delete-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--main-background-color);
+    padding: 10px;
+    border: 1px solid var(--mark-color);
+    color: var(--mark-color);
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.task-card .delete-btn:hover {
+    color: #FF3B3B;
+    border-color: #FF3B3B;
+    transform: scale(1.1);
+}
+
+/* Контейнер для выезжающих кнопок */
+.card-under {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    padding: 0 20px;
+}
+
+.task-card.show-actions .card-under {
+    max-height: 60px;
+    opacity: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Кнопки действий */
+.card-under button {
+    border: 1px solid var(--mark-color);
+    background: var(--light-background-color);
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.card-under button:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 131, 3, 0.2);
+}
+
+.card-under button svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}

@@ -1,0 +1,88 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.edit-window {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: #1F1E1B;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+    transition: bottom 0.4s ease;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 1000;
+}
+
+.edit-window.active {
+    bottom: 0;
+}
+
+.edit-window textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    background: #2A2925;
+    color: white;
+    font-size: 16px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.edit-window textarea:focus {
+    outline: 2px solid var(--mark-color);
+}
+
+.mini-input {
+    min-height: 60px;
+}
+
+.max-input {
+    min-height: 100px;
+}
+
+.edit-window .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 10px;
+}
+
+.edit-window button {
+    width: 150px;
+    background: var(--light-background-color);
+    border: 1px solid var(--mark-color);
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.edit-window button:hover {
+    background: var(--mark-color);
+    transform: translateY(-2px);
+}
+
+.edit-window #cancelBtn:hover {
+    background: #666;
+    border-color: #666;
+}
