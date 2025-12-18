@@ -5,87 +5,171 @@ export const useTaskStore = create(
     persist(
         (set, get) => ({
             tasks: [],
-            pinnedTasks: [],
 
+            editingTaskId: null,
+
+            deletingTaskId: null,
+
+            showEditWindow: false,
+            showShareWindow: false,
+            showConfirmWindow: false,
+
+            editData: {
+                miniInput: '',
+                maxInput: ''
+            },
+
+            openEditWindow: (task = null) => {
+                if (task) {
+                    set({
+                        showEditWindow: true,
+                        editingTaskId: task.id,
+                        editData: {
+                            miniInput: task.title,
+                            maxInput: task.about
+                        }
+                    });
+                } else {
+                    set({
+                        showEditWindow: true,
+                        editingTaskId: null,
+                        editData: {
+                            miniInput: '',
+                            maxInput: ''
+                        }
+                    });
+                }
+            },
+
+            closeEditWindow: () => {
+                set({
+                    showEditWindow: false,
+                    editingTaskId: null,
+                    editData: { miniInput: '', maxInput: '' }
+                });
+            },
+
+            openShareWindow: () => {
+                set({ showShareWindow: true });
+            },
+
+            closeShareWindow: () => {
+                set({ showShareWindow: false });
+            },
+
+            openConfirmWindow: (taskId) => {
+                set({
+                    showConfirmWindow: true,
+                    deletingTaskId: taskId
+                });
+            },
+
+            closeConfirmWindow: () => {
+                set({
+                    showConfirmWindow: false,
+                    deletingTaskId: null
+                });
+            },
+
+            // Основные операции с задачами
             addTask: (title, about) => {
                 const newTask = {
                     id: Date.now(),
-                    title,
-                    about,
+                    title: title.trim(),
+                    about: about.trim(),
                     isPinned: false,
                     miniInput: '',
-                    maxInput: '',
+                    maxInput: ''
                 };
 
                 set((state) => ({
-                    tasks: [...state.tasks, newTask]
+                    tasks: [...state.tasks, newTask],
+                    showEditWindow: false,
+                    editData: { miniInput: '', maxInput: '' }
                 }));
             },
 
-            deleteTask: (id) => {
-                set((state) => ({
-                    tasks: state.tasks.filter(task => task.id !== id),
-                    pinnedTasks: state.pinnedTasks.filter(task => task.id !== id)
-                }));
-            },
+            updateTask: () => {
+                const { editingTaskId, editData } = get();
 
-            editTask: (id, updates) => {
-                const updateTaskInList = (list) =>
-                    list.map(task =>
-                        task.id === id ? { ...task, ...updates } : task
-                    );
+                if (!editData.miniInput.trim() && !editData.maxInput.trim()) {
+                    alert('Введите текст!');
+                    return;
+                }
 
                 set((state) => ({
-                    tasks: updateTaskInList(state.tasks),
-                    pinnedTasks: updateTaskInList(state.pinnedTasks)
+                    tasks: state.tasks.map(task =>
+                        task.id === editingTaskId
+                            ? {
+                                ...task,
+                                title: editData.miniInput,
+                                about: editData.maxInput,
+                                miniInput: editData.miniInput,
+                                maxInput: editData.maxInput
+                            }
+                            : task
+                    ),
+                    showEditWindow: false,
+                    editingTaskId: null,
+                    editData: { miniInput: '', maxInput: '' }
                 }));
             },
 
-            pinTask: (id) => {
+            deleteTask: () => {
+                const { deletingTaskId } = get();
+
+                set((state) => ({
+                    tasks: state.tasks.filter(task => task.id !== deletingTaskId),
+                    showConfirmWindow: false,
+                    deletingTaskId: null
+                }));
+            },
+
+            togglePinTask: (taskId) => {
                 const state = get();
-                const taskToPin = [...state.tasks, ...state.pinnedTasks].find(t => t.id === id);
+                const task = state.tasks.find(t => t.id === taskId);
 
-                if (!taskToPin) return;
+                if (!task) return;
 
-                // Проверяем, не достигнут ли лимит в 3 закрепленных задачи
-                if (state.pinnedTasks.length >= 3 && !taskToPin.isPinned) {
+                const pinnedCount = state.tasks.filter(t => t.isPinned).length;
+
+                // Если пытаемся закрепить, а уже есть 3 закрепленных
+                if (!task.isPinned && pinnedCount >= 3) {
                     alert('Максимум можно закрепить 3 задачи!');
                     return;
                 }
 
-                if (taskToPin.isPinned) {
-                    set({
-                        pinnedTasks: state.pinnedTasks.filter(t => t.id !== id),
-                        tasks: [...state.tasks, { ...taskToPin, isPinned: false }]
-                    });
-                } else {
-                    set({
-                        tasks: state.tasks.filter(t => t.id !== id),
-                        pinnedTasks: [...state.pinnedTasks, { ...taskToPin, isPinned: true }]
-                    });
-                }
+                set({
+                    tasks: state.tasks.map(t =>
+                        t.id === taskId ? { ...t, isPinned: !t.isPinned } : t
+                    )
+                });
             },
 
-            moveTask: (dragIndex, hoverIndex, isPinnedSection) => {
-                if (isPinnedSection) {
-                    set((state) => {
-                        const newPinnedTasks = [...state.pinnedTasks];
-                        const [draggedTask] = newPinnedTasks.splice(dragIndex, 1);
-                        newPinnedTasks.splice(hoverIndex, 0, draggedTask);
-                        return { pinnedTasks: newPinnedTasks };
-                    });
-                } else {
-                    set((state) => {
-                        const newTasks = [...state.tasks];
-                        const [draggedTask] = newTasks.splice(dragIndex, 1);
-                        newTasks.splice(hoverIndex, 0, draggedTask);
-                        return { tasks: newTasks };
-                    });
-                }
+            setEditData: (data) => {
+                set((state) => ({
+                    editData: { ...state.editData, ...data }
+                }));
+            },
+
+            moveTask: (dragIndex, hoverIndex) => {
+                set((state) => {
+                    const regularTasks = state.tasks.filter(task => !task.isPinned);
+                    const pinnedTasks = state.tasks.filter(task => task.isPinned);
+
+                    if (dragIndex < regularTasks.length && hoverIndex < regularTasks.length) {
+                        const [draggedTask] = regularTasks.splice(dragIndex, 1);
+                        regularTasks.splice(hoverIndex, 0, draggedTask);
+                    }
+
+                    return {
+                        tasks: [...pinnedTasks, ...regularTasks]
+                    };
+                });
             }
         }),
         {
-            name: 'task-storage',
+            name: 'tasks-storage',
         }
     )
 );
