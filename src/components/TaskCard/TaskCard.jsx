@@ -87,12 +87,6 @@ const TaskCard = ({ task, index }) => {
                 <div>
                     <h3>{task.title || 'Untitled'}</h3>
                     <p>{task.about || 'No description'}</p>
-                    {(task.miniInput || task.maxInput) && (
-                        <div className="extra-inputs">
-                            {task.miniInput && <small>Mini: {task.miniInput}</small>}
-                            {task.maxInput && <small>Max: {task.maxInput}</small>}
-                        </div>
-                    )}
                 </div>
                 <button
                     className="delete-btn"

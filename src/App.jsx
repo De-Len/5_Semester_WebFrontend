@@ -3,16 +3,15 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { useTaskStore } from './store/useTaskStore';
 import TaskForm from './components/TaskForm/TaskForm';
-// import TaskCard from './components/TaskCard/TaskCard';
-// import EditWindow from './components/EditWindow/EditWindow';
-// import ConfirmWindow from './components/ConfirmWindow/ConfirmWindow';
-// import ShareWindow from './components/ShareWindow/ShareWindow';
+import TaskCard from './components/TaskCard/TaskCard';
+import EditWindow from './components/EditWindow/EditWindow';
+import ConfirmWindow from './components/ConfirmWindow/ConfirmWindow';
+import ShareWindow from './components/ShareWindow/ShareWindow';
 import './App.css';
 
 function App() {
     const tasks = useTaskStore((state) => state.tasks);
 
-    // Разделяем задачи на закрепленные и обычные
     const pinnedTasks = tasks.filter(task => task.isPinned);
     const regularTasks = tasks.filter(task => !task.isPinned);
 
