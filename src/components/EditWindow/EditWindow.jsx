@@ -15,10 +15,8 @@ const EditWindow = () => {
 
     const handleSave = () => {
         if (editingTaskId !== null) {
-            // Редактируем существующую задачу
             updateTask();
         } else {
-            // Создаем новую задачу из окна редактирования
             if (!editData.miniInput.trim() && !editData.maxInput.trim()) {
                 alert('Введите текст!');
                 return;
